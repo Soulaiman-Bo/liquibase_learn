@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: soulaiman
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: john_doe
+              - column:
+                  name: email
+                  value: john@example.com
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: username
+                  value: jane_doe
+              - column:
+                  name: email
+                  value: jane@example.com
+      rollback:
+        - delete:
+            tableName: users
+            where: username in ('john_doe', 'jane_doe')

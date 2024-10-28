@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: yourname
+      changes:
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: phone
+                  type: VARCHAR(15)
+                  constraints:
+                    nullable: true
+      rollback:
+        - dropColumn:
+            tableName: users
+            columnName: phone
